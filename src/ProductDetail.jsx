@@ -60,14 +60,14 @@ function ProductDetail({onAddToCart}) {
     <h2 className ="text-2xl 
  font-bold">${product.price}.00</h2>
     <p className ="text-lg "> {product.description}</p>
-      <div  className="flex">    
- <input className="w-10 mb-4 border-2 border-gray-300"
+      <div  className="flex items-center">    
+ <input className="w-10 border-2 border-gray-300"
             onChange={handleCountChange}
             value={count} 
             type="number" />      
-   <button className=" ml-4 mb-4 rounded-md bg-red-500 px-6 text-white hover:bg-red-600" onClick={handleButtonClick}>Add to cart</button>
+   <Button onClick={handleButtonClick}>Add to cart</Button>
       </div>
-         <hr />
+         <hr/>
          <p className="mt-2">Category:<span className="text-red-400">{product.category}</span></p>
      </div>
      </div>
