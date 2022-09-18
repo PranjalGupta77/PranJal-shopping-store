@@ -33,6 +33,14 @@ function ProductDetail({onAddToCart}) {
     onAddToCart(id, count);
   }
 
+  function handleInputFirst() {
+    setCount(1);
+  }
+
+  function handleSetLoading (){
+   setLoading(true);
+  }
+
   if (loading) {
     return <Loading />
   }
@@ -73,8 +81,10 @@ function ProductDetail({onAddToCart}) {
      </div>
 
       <div className="flex flex-row justify-between p-8 sm:p-4">
-        <Link to={"/product/" + (id - 1)}> <Button>Previous</Button></Link>
-        <Link to={"/product/" + (id + 1)} > <Button>Next</Button></Link>
+      {id > 1 && (
+<Link onClick={handleInputFirst} to={"/product/" + (id - 1)}> <Button onClick={handleSetLoading}>Previous</Button></Link> )}
+      { id < 100 && (
+        <Link onClick={handleInputFirst} to={"/product/" + (id + 1)} > <Button onClick={handleSetLoading}>Next</Button></Link> )}
       </div>
 
     </div>

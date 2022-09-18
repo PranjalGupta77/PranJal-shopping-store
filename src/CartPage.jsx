@@ -1,12 +1,18 @@
 import React from 'react';
 import CartCheckOut from './CartCheckOut';
 import CartList from './CartList';
+import { HiArrowNarrowLeft } from "react-icons/hi"
+import { Link } from "react-router-dom";
 
 function CartPage() {
   return (
     <>
       <div className="px-4">
         <div className="p-5 max-w-6xl bg-white mx-auto px-10 py-6 my-16">
+
+        <div className="w-8 mb-3 ml-2">
+        <Link to="/" className="text-3xl "><HiArrowNarrowLeft></HiArrowNarrowLeft></Link>
+      </div>
 
           <CartList></CartList>
 

@@ -1,7 +1,6 @@
 import React from "react";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 
-
 function CartRow() {
   return (
     <div>
@@ -9,7 +8,7 @@ function CartRow() {
       <div className="md:hidden">
         <div className="border">
 <div className="flex justify-end p-4">
-<button className="text-gray-500 ml-5"><AiOutlineCloseCircle /></button>
+<button className="hover:text-red-500 text-gray-500 ml-5"><AiOutlineCloseCircle /></button>
 </div>
 <hr></hr>
 <div className="flex justify-center py-4">
@@ -38,11 +37,10 @@ function CartRow() {
         </div>
       </div>
 
-
     <div className="hidden md:block">
     <div className="flex border items-center px-4 py-2 justify-between">
       <div className="flex items-center">
-        <button className="text-gray-500 ml-5"><AiOutlineCloseCircle /></button>
+        <button className=" ml-5 hover:text-red-500 text-gray-500"><AiOutlineCloseCircle /></button>
         <img className="w-12 ml-16" src="https://media.discordapp.net/attachments/992343608189526056/1002832090527711283/mug-white-4.jpeg?width=468&height=468" />
         <h1 className="text-red-500 font-bold ml-24">Black Printed Coffee Mug</h1>
       </div>
