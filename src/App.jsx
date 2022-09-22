@@ -6,6 +6,10 @@ import NavBar from './NavBar';
 import Footer from './Footer';
 import Error from './Error';
 import CartPage from './CartPage';
+import SingUpPage from './SingUpPage';
+import LoginPage from './LoginPage';
+import ForgotPasswordPage from './ForgotPasswordPage';
+
 
 function App() {
 
@@ -37,6 +41,9 @@ const savedDataString = localStorage.getItem("my-cart") || "{}";
           <Route path="/product/:id" element={<ProductDetail onAddToCart={handleAddToCart} />} />
           <Route path="*" element={<Error />} />
           <Route path="/CartPage" element={<CartPage />} />
+          <Route path="/LoginPage" element={<LoginPage />} />
+          <Route path="/ForgotPasswordPage" element={<ForgotPasswordPage />} />
+          <Route path="/SingUpPage" element={<SingUpPage />} />
         </Routes>
       </div>
       <Footer />
