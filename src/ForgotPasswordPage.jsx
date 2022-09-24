@@ -2,7 +2,7 @@ import {Formik, Form} from 'formik';
 import React from 'react';
 import { Link} from "react-router-dom";
 import * as Yup from "yup";
-import Input from './Input';
+import {FormikInput} from './Input';
 import { HiArrowNarrowLeft } from "react-icons/hi"
 
 function ForgotPassword() {
@@ -41,7 +41,7 @@ const initialValues = {
 
          <h1 className='text-2xl font-bold self-center mb-4'>Forgot Password</h1>   
 
-         <Input 
+         <FormikInput 
           label="Email address"
           id="email-address"
           name="email"

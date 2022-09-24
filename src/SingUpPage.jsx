@@ -2,8 +2,8 @@ import {Formik, Form} from 'formik';
 import React from 'react';
 import { Link} from "react-router-dom";
 import * as Yup from "yup";
-import Input from './Input';
 import { HiArrowNarrowLeft } from "react-icons/hi"
+import {FormikInput} from './Input';
 
 function SingUp() {
 
@@ -47,7 +47,7 @@ const initialValues = {
 
          <h1 className='text-2xl font-bold self-center mb-4'>SingUp</h1>   
 
-         <Input 
+         <FormikInput 
           label="Name"
           id="name"
           name="name"
@@ -57,7 +57,7 @@ const initialValues = {
           placeholder="Full Name"
          />      
 
-         <Input 
+         <FormikInput 
           label="Email address"
           id="email"
           name="email"
@@ -67,7 +67,7 @@ const initialValues = {
           placeholder="Email address"
          />      
 
-         <Input 
+         <FormikInput 
           label="Password"
           id="password"
           name="Password"
@@ -77,7 +77,7 @@ const initialValues = {
           placeholder="Password"          
          />       
 
-         <Input 
+         <FormikInput 
           label="Confirm Password"
           id="confirm-password"
           name="confirmPassword"
