@@ -1,11 +1,10 @@
-import {Formik, Form} from 'formik';
+import {withFormik} from 'formik';
 import React from 'react';
 import { Link} from "react-router-dom";
 import * as Yup from "yup";
-import {FormikInput} from './Input';
+import Input from './Input';
 import { HiArrowNarrowLeft } from "react-icons/hi"
 
-function ForgotPassword() {
 
 function callLoginData(Values) {
   console.log( Values.email);
@@ -19,6 +18,8 @@ const initialValues = {
   email: "",
 }
 
+function ForgotPassword({values, touched, errors, handleSubmit, handleChange, handleBlur}) {
+
   return (
 
      <div className="px-4">
@@ -30,20 +31,18 @@ const initialValues = {
         <Link to="/" className="text-3xl "><HiArrowNarrowLeft></HiArrowNarrowLeft></Link>
       </div>
 
-        <Formik 
-        initialValues={initialValues}
-        onSubmit={callLoginData}
-        validationSchema={schema}
-        validateOnMount
-        >         
-
-         <Form  className='flex flex-col max-w-72 py-10 px-8 rounded-md bg-gray-100'> 
+         <form onSubmit={handleSubmit} className='flex flex-col max-w-72 py-10 px-8 rounded-md bg-gray-100'> 
 
          <h1 className='text-2xl font-bold self-center mb-4'>Forgot Password</h1>   
 
-         <FormikInput 
+         <Input 
+          values={values.email}
+          touched={touched.email}
+          error={errors.email}
+          onChange={handleChange}
+          onBlur={handleBlur}
           label="Email address"
-          id="email-address"
+          id="email"
           name="email"
           type="email"
           required
@@ -55,8 +54,7 @@ const initialValues = {
            <Link to={"/SingUpPage"} className="text-white bg-red-500 px-6 rounded-md mt-2">Change Password</Link>
          </div>
 
-         </Form>
-         </Formik> 
+         </form>
         </div>
         </div>
 
@@ -66,4 +64,4 @@ const initialValues = {
   );
 }
 
-export default ForgotPassword;
+export default withFormik({validationSchema: schema, initialValues: initialValues, handleSubmit: callLoginData})(ForgotPassword);
