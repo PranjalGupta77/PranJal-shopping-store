@@ -10,22 +10,24 @@ import SingUpPage from './SingUpPage';
 import LoginPage from './LoginPage';
 import ForgotPasswordPage from './ForgotPasswordPage';
 
-
 function App() {
-
-const savedDataString = localStorage.getItem("my-cart") || "{}";
+  const savedDataString = localStorage.getItem("myCart") || "{}";
   const savedData = JSON.parse(savedDataString)
-  
+
   const [cart, setCart] = useState(savedData);
   function handleAddToCart(productId, count) {
     const oldCount = cart[productId] || 0;
-
+    // localStorage.setItem("myCart", newCart)
     const newCart = { ...cart, [productId]: oldCount + count };
+    updateCart(newCart);
+  };
+
+  function updateCart(newCart) {
     setCart(newCart);
     const cartString = JSON.stringify(newCart);
-    localStorage.setItem("my-cart",cartString);
-  };
-  
+    localStorage.setItem("myCart", cartString);
+  }
+
   const totalCount = Object.keys(cart).reduce(function(previous, current) {
     return previous + cart[current];
   }, 0);
@@ -40,7 +42,7 @@ const savedDataString = localStorage.getItem("my-cart") || "{}";
           <Route index element={<ProductListPage />} />
           <Route path="/product/:id" element={<ProductDetail onAddToCart={handleAddToCart} />} />
           <Route path="*" element={<Error />} />
-          <Route path="/CartPage" element={<CartPage />} />
+          <Route path="/CartPage" element={<CartPage savedData={savedData} updateCart={updateCart} />} />
           <Route path="/LoginPage" element={<LoginPage />} />
           <Route path="/ForgotPasswordPage" element={<ForgotPasswordPage />} />
           <Route path="/SingUpPage" element={<SingUpPage />} />

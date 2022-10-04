@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function ProductCard({ thumbnail, category, title, price, id }) {
   return (
     <>
-      <Link to={"/product/" + id}>
+      
         <div className="bg-white mb-2 shadow-md max-w-xs aspect-square">
           <div className="w-full aspect-square">
             <img className="h-80 w-80 object-cover" src={thumbnail} />
@@ -17,7 +17,7 @@ function ProductCard({ thumbnail, category, title, price, id }) {
             <Link to={"/product/" + id} className="text-xs text-blue-500 hover:text-red-500">view detaile</Link>
           </div>
         </div>
-      </Link>
+      
     </>
   );
 }
